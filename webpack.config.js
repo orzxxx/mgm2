@@ -26,5 +26,24 @@ module.exports = {
         include: __dirname
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true,
+    port: 3000,
+    proxy: {
+      '/*': {
+        target: 'http://localhost:8080/mgm2',
+        secure: false,
+        bypass: function(req, res, proxyOptions) {
+          if (req.url === '/' || req.url === '/repos') {
+            console.log('Skipping proxy for browser request:' + req.url);
+            return req.url;
+          }
+        }
+      }
+    }
   }
 }

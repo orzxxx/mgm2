@@ -15,7 +15,7 @@ class Counter extends Component{
         return (
             <p>
                 Clicked: {count} times
-                <button onClick={increment}>+</button>
+                <button onClick={increment}>+11</button>
                 <button onClick={decrement}>-</button>
                 <button onClick={incrementIfOdd}>odd+</button>
                 <button onClick={incrementAsync}>delay</button>
