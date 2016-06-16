@@ -1,13 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
-var TransferWebpackPlugin = require('transfer-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './index'
-  ],
+  entry: {
+    app: ['./index', 'webpack-hot-middleware/client']
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -23,15 +21,19 @@ module.exports = {
         test: /\.js$/,
         loaders: [ 'babel' ],
         exclude: /node_modules/,
-        include: __dirname
       }, {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
-        exclude: /node_modules/
       }, {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192'
-        ,exclude: /node_modules/}
+        loader: 'url-loader?limit=8192',
+      }, {
+        test: /\.less$/,
+        loader: "style!css!less",
+      }, {
+        test   : /\.woff|\.woff2|\.svg|.eot|\.ttf/,
+        loader : 'url?prefix=font/&limit=10000'
+      }
     ]
   },
   devServer: {

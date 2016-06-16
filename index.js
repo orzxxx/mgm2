@@ -1,3 +1,7 @@
+//css
+import './public/bootstrap/css/bootstrap.min.css'
+import './public/dist/css/AdminLTE.min.css'
+//js
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, hashHistory, browserHistory, Link} from 'react-router'
@@ -21,7 +25,7 @@ const store = configureStore()
 
 render(
     <Provider store={store}>
-        <Button/>
+        <Button bsSize="xs"/>
     </Provider>,
     document.getElementById('root')
 )
