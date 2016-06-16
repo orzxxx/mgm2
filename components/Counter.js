@@ -1,6 +1,15 @@
 import React, {Component, PropTypes} from "react"
 
 class Counter extends Component{
+    render() {
+        return (
+            <button>button</button>
+        )
+    }
+}
+
+export default Counter
+/*class Counter extends Component{
     static propTypes = {
         increment: PropTypes.func.isRequired,
         decrement: PropTypes.func.isRequired,
@@ -26,7 +35,7 @@ class Counter extends Component{
     }
 }
 
-export default Counter
+export default Counter*/
 
 /*import React, { Component, PropTypes } from 'react'
 
