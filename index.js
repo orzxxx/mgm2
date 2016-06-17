@@ -5,7 +5,7 @@ import './public/dist/css/AdminLTE.min.css'
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, hashHistory, browserHistory, Link} from 'react-router'
-import Button from './modules/Button'
+import {Button, ButtonGroup} from './modules/Button'
 import App from './modules/App'
 import About from './modules/About'
 import Repos from './modules/Repos'
@@ -25,7 +25,7 @@ const store = configureStore()
 
 render(
     <Provider store={store}>
-        <Button bsSize="xs"/>
-    </Provider>,
-    document.getElementById('root')
+        <Button bsSize="lg" bsStyle="success" style={{width:150}}/>
+    </Provider>
+    ,document.getElementById('root')
 )
