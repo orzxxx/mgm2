@@ -6,6 +6,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, hashHistory, browserHistory, Link} from 'react-router'
 import {Button, ButtonGroup} from './modules/Button'
+import {Number} from './components/base/form/Number'
 import App from './modules/App'
 import About from './modules/About'
 import Repos from './modules/Repos'
@@ -25,7 +26,7 @@ const store = configureStore()
 
 render(
     <Provider store={store}>
-        <Button bsSize="lg" bsStyle="success" style={{width:150}}/>
+        <Number max={99999} min={-999} precision={3}/>
     </Provider>
     ,document.getElementById('root')
 )

@@ -1,12 +1,10 @@
 import React, {Component, PropTypes} from "react"
 import classNames from "classnames"
-import '../node_modules/admin-lte/bootstrap/css/bootstrap.css'
 //
 export class Button extends Component{
     static defaultProps = {
         label: 'Button',
         bsFlat: false,
-        bsDisabled: false,
         bsBlock: false,
         bsStyle: 'default'
     };
@@ -14,21 +12,19 @@ export class Button extends Component{
     static propTypes = {
         label: React.PropTypes.string,
         bsFlat: React.PropTypes.bool,
-        bsDisabled: React.PropTypes.bool,
         bsColor: React.PropTypes.string,
         bsSize: React.PropTypes.oneOf(['lg', 'sm', 'xs']),
         bsStyle: React.PropTypes.oneOf(['default', 'primary', 'success', 'info', 'danger', 'warning'])
     };
 
     render() {
-        const {label, bsSize, bsStyle, bsColor, bsFlat, bsDisabled} = this.props;
-        var btnClass = classNames({
+        const {label, bsSize, bsStyle, bsColor, bsFlat} = this.props;
+        let btnClass = classNames({
             'btn': true,
             [`btn-${this.props.bsStyle}`]: bsStyle,
             [`btn-${this.props.bsSize}`]: bsSize,
             [`bg-${this.props.bsColor}`]: bsColor,
             'btn-flat': bsFlat,
-            'disabled': bsDisabled
         });
         return (
             <button {...this.props} className={btnClass}>{label}</button>
