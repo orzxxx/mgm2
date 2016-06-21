@@ -6,9 +6,9 @@ export class Number extends Component{
         value: ""
     };
 
-    /*static defaultProps = {
+    static defaultProps = {
 
-    };*/
+    };
 
     static propTypes = {
         min: React.PropTypes.number,
@@ -51,11 +51,11 @@ export class Number extends Component{
 
     render() {
         const {min, max, precision} = this.props;
-        let btnClass = classNames({
+        let numberClass = classNames({
             'form-control': true
         });
         return (
-            <input ref="number" {...this.props} className={btnClass} value={this.state.value}
+            <input ref="number" {...this.props} className={numberClass} value={this.state.value}
                    onChange={this.handleChange} onBlur={this.handleBlur}/>
         )
     }
