@@ -8,7 +8,7 @@ import { Router, Route, hashHistory, browserHistory, Link} from 'react-router'
 import {Button, ButtonGroup} from './modules/Button'
 import {Number} from './components/base/form/Number'
 import {Input} from './components/base/form/Input'
-import {TestInput} from './components/base/form/validate'
+import Test from './components/base/form/TestForm'
 import App from './modules/App'
 import About from './modules/About'
 import Repos from './modules/Repos'
@@ -28,7 +28,7 @@ const store = configureStore()
 
 render(
     <Provider store={store}>
-        <TestInput/>
+        <Test/>
     </Provider>
     ,document.getElementById('root')
 )
