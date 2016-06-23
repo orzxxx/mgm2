@@ -44,6 +44,12 @@ export function redo(){
     type: REDO_COUNTER
   }
 }
+
+export function onSubmit(){
+  return {
+    type: REDO_COUNTER
+  }
+}
 /*
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER'
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
