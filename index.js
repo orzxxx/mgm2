@@ -28,9 +28,10 @@ const store = configureStore()
 
 render(
     <Provider store={store}>
-        <Test/>
+        <Input label="label1" hint="help"/>
     </Provider>
     ,document.getElementById('root')
 )
 /*<Input label="label" help="help"/>*/
 /*<Number max={99999} min={-999} precision={3}/>*/
+/*<Test/>*/
