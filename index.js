@@ -1,6 +1,11 @@
 //css
 import './public/bootstrap/css/bootstrap.min.css'
 import './public/dist/css/AdminLTE.min.css'
+import './public/dist/css/skins/skin-blue.min.css'
+/*<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->*/
 //js
 import React from 'react'
 import { render } from 'react-dom'
@@ -12,6 +17,7 @@ import Test from './components/base/form/TestForm'
 import App from './modules/App'
 import About from './modules/About'
 import Repos from './modules/Repos'
+import Test2 from './modules/Test'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
@@ -28,7 +34,7 @@ const store = configureStore()
 
 render(
     <Provider store={store}>
-        <Input label="label1" hint="help"/>
+        <Test2/>
     </Provider>
     ,document.getElementById('root')
 )
