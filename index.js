@@ -1,16 +1,16 @@
 //css
-import './public/bootstrap/css/bootstrap.min.css'
-import './public/dist/css/AdminLTE.min.css'
-import './public/dist/css/ionicons.min.css'
-import './public/dist/css/font-awesome.css'
-import './public/dist/css/skins/skin-blue.min.css'
+import './node_modules/admin-lte/bootstrap/css/bootstrap.min.css'
+import './node_modules/admin-lte/dist/css/AdminLTE.min.css'
+import './node_modules/ionicons/dist/css/ionicons.min.css'
+import './node_modules/font-awesome/css/font-awesome.css'
+import './node_modules/admin-lte/dist/css/skins/skin-blue.min.css'
 /*<!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->*/
 //js
-import './public/plugins/jQuery/jQuery-2.2.0.min.js'
-import './public/dist/js/app.min.js'
+import 'admin-lte'
+import 'bootstrap'
 
 import React from 'react'
 import { render } from 'react-dom'
@@ -27,7 +27,6 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
 const store = configureStore()
-
 /*render((
     <Router history={hashHistory}>
         <Route path="/" component={App}/>

@@ -1,11 +1,18 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  entry: {
-    app: ['./index', 'webpack-hot-middleware/client']
+  resolve: {
+    alias: {
+      jquery: "admin-lte/plugins/jQuery/jQuery-2.2.0.min.js"
+    }
   },
+  entry: {
+    app: ['./index', 'webpack-hot-middleware/client'],
+    //vendor: ['jquery', 'admin-lte']
+  },
+
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -14,7 +21,12 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+    //new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
   ],
   module: {
     loaders: [{
