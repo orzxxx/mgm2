@@ -14,34 +14,62 @@ import 'bootstrap'
 
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, hashHistory, browserHistory, Link} from 'react-router'
+import { Router, Route, hashHistory, browserHistory, Link, IndexRoute} from 'react-router'
 import {Button, ButtonGroup} from './modules/Button'
 import {Number} from './components/base/form/Number'
 import {Input} from './components/base/form/Input'
 import Test from './components/base/form/TestForm'
 import App from './modules/App'
+//import App from './containers/App'
 import About from './modules/About'
 import Repos from './modules/Repos'
+import Repo from './modules/Repo'
+import Home from './modules/Home'
 import Test2 from './modules/Test'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
+import THeader from './modules/THeader'
 
 const store = configureStore()
-/*render((
-    <Router history={hashHistory}>
-        <Route path="/" component={App}/>
-        {/!* add the routes here *!/}
-        <Route path="/repos" component={Repos}/>
-        <Route path="/about" component={About}/>
-    </Router>
-), document.getElementById('app'))*/
+/*    render((
+        <Router history={browserHistory}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home}/>
+                <Route path="/repos" component={Repos}>
+                    <Route path="/repos/:userName/:repoName" component={Repo}/>
+                </Route>
+                <Route path="/about" component={About}/>
+            </Route>
+        </Router>
+    ), document.getElementById('app'))*/
 
+/*render(
+    <Provider store={store}>
+        <Router history={hashHistory}>
+            <Route path="/" component={Test2}>
+                <IndexRoute component={THeader}/>
+                <Route path="/about" component={About}></Route>
+            </Route>
+        </Router>
+    </Provider>
+    ,document.getElementById('root')
+)*/
+const sidebar = [
+    {url: 'u1', title: 't1'},
+    {url: 'u2', title: 't2'}
+];
 render(
     <Provider store={store}>
-        <Test2/>
+        <App/>
     </Provider>
     ,document.getElementById('root')
 )
+/*render(
+    <Provider store={store}>
+        <Number max={99999} min={-999} precision={3}/>
+    </Provider>
+    ,document.getElementById('root')
+)*/
 /*<Input label="label" help="help"/>*/
 /*<Number max={99999} min={-999} precision={3}/>*/
 /*<Test/>*/

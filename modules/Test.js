@@ -1,6 +1,16 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
+import THeader from './THeader'
+import About from './About'
+import { Router, Route, hashHistory, browserHistory, Link} from 'react-router'
 
-export default React.createClass({
+export default class Test extends Component{
+    static defaultProps = {
+        sidebar: [
+            {url: 'u1', title: 't1'},
+            {url: 'u2', title: 't2'}
+        ]
+    };
+
     render() {
         return (
             <div className="wrapper">
@@ -212,8 +222,9 @@ export default React.createClass({
                             <li className="treeview">
                                 <a href="#"><i className="fa fa-link"></i> <span>Multilevel</span> <i className="fa fa-angle-left pull-right"></i></a>
                                 <ul className="treeview-menu">
-                                    <li><a href="#">Link in level 2</a></li>
-                                    <li><a href="#">Link in level 2</a></li>
+
+                                    <li><Link to="/about">Link in level 2</Link></li>
+
                                 </ul>
                             </li>
                         </ul>
@@ -223,27 +234,7 @@ export default React.createClass({
                 </aside>
 
 
-                <div className="content-wrapper">
-
-                    <section className="content-header">
-                        <h1>
-                            Page Header
-                            <small>Optional description</small>
-                        </h1>
-                        <ol className="breadcrumb">
-                            <li><a href="#"><i className="fa fa-dashboard"></i> Level</a></li>
-                            <li className="active">Here</li>
-                        </ol>
-                    </section>
-
-
-                    <section className="content">
-
-
-
-                    </section>
-
-                </div>
+                {this.props.children}
 
 
 
@@ -332,4 +323,4 @@ export default React.createClass({
 
         )
     }
-})
+}

@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),//不使用webwebpack-dev-server时才使用，Maximum call stack size exceeded
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -53,9 +53,9 @@ module.exports = {
     hot: true,
     inline: true,
     progress: true,
-    port: 3000/*,
+    port: 3000,
     proxy: {
-      '/!*': {
+      '/*': {
         target: 'http://localhost:8080/mgm2',
         secure: false,
         bypass: function(req, res, proxyOptions) {
@@ -65,6 +65,6 @@ module.exports = {
           }
         }
       }
-    }*/
+    }
   }
 }
