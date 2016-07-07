@@ -59,8 +59,8 @@ module.exports = {
         target: 'http://localhost:8080/mgm2',
         secure: false,
         bypass: function(req, res, proxyOptions) {
-          if (req.url === '/' || req.url === '/repos') {
-            console.log('Skipping proxy for browser request:' + req.url);
+          if (req.url === '/') {
+            //console.log('Skipping proxy for browser request:' + req.url);
             return req.url;
           }
         }
