@@ -29,6 +29,7 @@ import Test2 from './modules/Test'
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import THeader from './modules/THeader'
+import Login from './modules/Login'
 
 const store = configureStore()
 /*    render((
@@ -54,13 +55,13 @@ const store = configureStore()
     </Provider>
     ,document.getElementById('root')
 )*/
-const sidebar = [
-    {url: 'u1', title: 't1'},
-    {url: 'u2', title: 't2'}
-];
+
 render(
     <Provider store={store}>
-        <App/>
+        <Router history={hashHistory}>
+            <Route path="/" component={Login}></Route>
+            <Route path="/login" component={Login}></Route>
+        </Router>
     </Provider>
     ,document.getElementById('root')
 )
