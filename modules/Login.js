@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
+import {Link, hashHistory} from 'react-router'
 import '../node_modules/admin-lte/plugins/iCheck/icheck'
 import '../node_modules/admin-lte/plugins/iCheck/square/blue.css'
+import {jsonSerialize} from '../common/fetchHelper'
 
 export default class Login extends Component{
     componentDidMount = () => {
@@ -20,21 +21,27 @@ export default class Login extends Component{
         const userId = this.refs.userId.value;
         const password = this.refs.password.value;
 
-        var formData = new FormData();
-        formData.append('userId', userId);
-        formData.append('password', password);
         return fetch('/login', {
             method: 'POST',
             headers: {
+                'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            },　
-            body: formData})
+            },
+            body: jsonSerialize({
+                userId,
+                passwd: password
+            })})
             .then(res => res.json())
             .then(result => {
                 if(result.code == "0"){
-
+                    hashHistory.push({
+                        pathname: "/main",
+                        state: {
+                            menus: result.data.menus
+                        }
+                    });
                 }
-            }).catch(err => alert(err))
+            }).catch(err => alert('连接超时'))
     };
 
     render() {

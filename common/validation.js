@@ -53,8 +53,10 @@ export function match(field) {
         }
     };
 }
-
-export function createValidator(rules) {
+/**
+ * createValidator([required, maxLength(10)])([value1, value2])
+ */
+/*export function createValidator(rules) {
     return (data = {}) => {
         const errors = {};
         Object.keys(rules).forEach((key) => {
@@ -65,5 +67,21 @@ export function createValidator(rules) {
             }
         });
         return errors;
+    };
+}*/
+
+export function createValidator(rules) {
+    return (data = "") => {
+        let errmsg = {};
+        Object.keys(rules).forEach((key) => {
+            console.log(rules[key]);
+            const rule = join([].concat(rules[key])); // concat enables both functions and arrays of functions
+            const error = rule(data, data);
+            if (error) {
+                errmsg = error;
+                return;
+            }
+        });
+        return errmsg;
     };
 }

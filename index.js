@@ -30,6 +30,10 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 import THeader from './modules/THeader'
 import Login from './modules/Login'
+import Register from './modules/Register'
+import Main from './modules/Main'
+import MenuList from './modules/menu/MenuList'
+import MenuTypeList from './modules/menu/MenuTypeList'
 
 const store = configureStore()
 /*    render((
@@ -61,6 +65,12 @@ render(
         <Router history={hashHistory}>
             <Route path="/" component={Login}></Route>
             <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route>
+            <Route path="/main" component={Main}>
+                <IndexRoute component={About}/>
+                <Route path="/menus" component={MenuList}></Route>
+                <Route path="/types" component={MenuTypeList}></Route>
+            </Route>
         </Router>
     </Provider>
     ,document.getElementById('root')
